@@ -39,7 +39,7 @@ export default async function CategoryPage({
 
   return (
     <>
-      <CategoryBanner slides={category.banner} />
+      <CategoryBanner slides={category.banner} image={category.images[0]} />
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
         <h1 className="font-editorial text-3xl text-primary sm:text-4xl">
           {category.name}

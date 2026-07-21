@@ -42,6 +42,9 @@ function defineProduct(raw: RawProduct, seed: number): Product {
   const subcategory =
     categoryDef?.subcategories[seed % categoryDef.subcategories.length] ??
     "General";
+  const image =
+    categoryDef?.images[seed % categoryDef.images.length] ??
+    "/images/categories/marca-quickbite-1.jpg";
 
   return {
     id: handle,
@@ -54,6 +57,7 @@ function defineProduct(raw: RawProduct, seed: number): Product {
     dietaryAttributes: raw.dietaryAttributes ?? [],
     tags: raw.tags ?? [],
     subcategory,
+    image,
     variants,
     rating: averageRating(reviews),
     reviewCount: reviews.length,

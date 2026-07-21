@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
 
 export interface CategoryBannerProps {
   slides: { headline: string; subtext: string }[];
+  image: string;
 }
 
-function CategoryBanner({ slides }: CategoryBannerProps) {
+function CategoryBanner({ slides, image }: CategoryBannerProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -23,6 +25,19 @@ function CategoryBanner({ slides }: CategoryBannerProps) {
 
   return (
     <div className="relative overflow-hidden bg-primary">
+      <Image
+        src={image}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40"
+        aria-hidden
+      />
       <div className="relative mx-auto flex min-h-40 max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
         <AnimatePresence mode="wait">
           <motion.div

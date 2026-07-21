@@ -6,7 +6,7 @@ import { useCartStore, type CartLine } from "@/lib/store/cart-store";
 import { products } from "@/lib/data/products";
 import { categories } from "@/lib/data/categories";
 import type { Product, ProductVariant } from "@/lib/data/types";
-import { ProductImagePlaceholder } from "@/components/product/product-image-placeholder";
+import { ProductImage } from "@/components/product/product-image";
 import { PriceTag } from "@/components/ui/price-tag";
 import { QuantitySelector } from "@/components/ui/quantity-selector";
 import { Button } from "@/components/ui/button";
@@ -80,8 +80,10 @@ export default function CartPage() {
                   href={`/producto/${product.handle}`}
                   className="w-24 shrink-0"
                 >
-                  <ProductImagePlaceholder
-                    accentIcon={category?.accentIcon ?? "Leaf"}
+                  <ProductImage
+                    src={product.image}
+                    alt={product.title}
+                    fallbackIcon={category?.accentIcon ?? "Leaf"}
                     seed={product.imageSeed}
                   />
                 </Link>

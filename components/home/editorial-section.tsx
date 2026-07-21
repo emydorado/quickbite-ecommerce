@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -6,8 +7,14 @@ function EditorialSection() {
   return (
     <section className="bg-primary py-16 text-secondary lg:py-24">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
-        <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-secondary/10 lg:order-2">
-          <span className="font-editorial text-8xl text-secondary/20">Q</span>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl lg:order-2">
+          <Image
+            src="/images/editorial/hero-editorial.jpg"
+            alt="Mesa con desayuno saludable: frutas, yogur y café"
+            fill
+            sizes="(min-width: 1024px) 40vw, 90vw"
+            className="object-cover"
+          />
         </div>
         <div className="flex flex-col gap-5 lg:order-1">
           <span className="w-fit rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-lime">

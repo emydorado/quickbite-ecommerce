@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Heart } from "lucide-react";
 import type { Product } from "@/lib/data/types";
 import { categories } from "@/lib/data/categories";
-import { ProductImagePlaceholder } from "./product-image-placeholder";
+import { ProductImage } from "./product-image";
 import { Badge } from "@/components/ui/badge";
 import { PriceTag } from "@/components/ui/price-tag";
 import { useFavoritesStore } from "@/lib/store/favorites-store";
@@ -36,8 +36,10 @@ function ProductCard({ product, className }: ProductCardProps) {
         className="relative block"
         aria-label={product.title}
       >
-        <ProductImagePlaceholder
-          accentIcon={category?.accentIcon ?? "Leaf"}
+        <ProductImage
+          src={product.image}
+          alt={product.title}
+          fallbackIcon={category?.accentIcon ?? "Leaf"}
           seed={product.imageSeed}
         />
         <div className="pointer-events-none absolute left-3 top-3 flex flex-col gap-1.5">

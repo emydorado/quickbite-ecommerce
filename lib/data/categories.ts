@@ -6,6 +6,10 @@ export const categories: CategoryDefinition[] = [
     name: "Frutas y verduras",
     shortDescription: "Frescura de temporada, seleccionada a mano.",
     accentIcon: "Apple",
+    images: [
+      "/images/categories/frutas-y-verduras-1.jpg",
+      "/images/categories/frutas-y-verduras-2.jpg",
+    ],
     subcategories: ["Frutas", "Verduras", "Hierbas frescas"],
     banner: [
       {
@@ -23,6 +27,7 @@ export const categories: CategoryDefinition[] = [
     name: "Snacks saludables",
     shortDescription: "Para el antojo de las 4pm, sin culpa.",
     accentIcon: "Cookie",
+    images: ["/images/categories/snacks-saludables-1.jpg"],
     subcategories: ["Chips y horneados", "Galletas", "Palomitas"],
     banner: [
       {
@@ -40,6 +45,7 @@ export const categories: CategoryDefinition[] = [
     name: "Snacks proteicos",
     shortDescription: "Proteína real, en formato de bolsillo.",
     accentIcon: "Beef",
+    images: ["/images/categories/snacks-proteicos-1.jpg"],
     subcategories: ["Barras", "Bites", "Jerky"],
     banner: [
       {
@@ -57,6 +63,7 @@ export const categories: CategoryDefinition[] = [
     name: "Bebidas saludables",
     shortDescription: "Hidratación con propósito.",
     accentIcon: "GlassWater",
+    images: ["/images/categories/bebidas-saludables-1.jpg"],
     subcategories: ["Smoothies y aguas", "Kombucha", "Funcionales"],
     banner: [
       {
@@ -74,6 +81,7 @@ export const categories: CategoryDefinition[] = [
     name: "Café y té",
     shortDescription: "Rituales pequeños, de especialidad.",
     accentIcon: "Coffee",
+    images: ["/images/categories/cafe-y-te-1.jpg"],
     subcategories: ["Café en grano", "Café molido", "Té e infusiones"],
     banner: [
       {
@@ -91,6 +99,7 @@ export const categories: CategoryDefinition[] = [
     name: "Granolas y cereales",
     shortDescription: "El desayuno resuelto, cada mañana.",
     accentIcon: "Wheat",
+    images: ["/images/categories/granolas-y-cereales-1.jpg"],
     subcategories: ["Granolas", "Cereales", "Avenas"],
     banner: [
       {
@@ -108,6 +117,7 @@ export const categories: CategoryDefinition[] = [
     name: "Semillas y frutos secos",
     shortDescription: "Energía concentrada, sin procesar.",
     accentIcon: "Nut",
+    images: ["/images/categories/semillas-y-frutos-secos-1.jpg"],
     subcategories: ["Frutos secos", "Semillas", "Mixes"],
     banner: [
       {
@@ -125,6 +135,7 @@ export const categories: CategoryDefinition[] = [
     name: "Mantequillas naturales",
     shortDescription: "Untables honestos, sin azúcar oculta.",
     accentIcon: "Sandwich",
+    images: ["/images/categories/mantequillas-naturales-1.jpg"],
     subcategories: ["Maní", "Almendra", "Otras semillas"],
     banner: [
       {
@@ -142,6 +153,7 @@ export const categories: CategoryDefinition[] = [
     name: "Despensa orgánica",
     shortDescription: "Ingredientes base, cultivados con cuidado.",
     accentIcon: "Leaf",
+    images: ["/images/categories/despensa-organica-1.jpg"],
     subcategories: ["Aceites", "Granos", "Endulzantes"],
     banner: [
       {
@@ -159,6 +171,7 @@ export const categories: CategoryDefinition[] = [
     name: "Suplementos y vitaminas",
     shortDescription: "Lo esencial, sin vitrina de farmacia.",
     accentIcon: "Pill",
+    images: ["/images/categories/suplementos-y-vitaminas-1.jpg"],
     subcategories: ["Vitaminas", "Minerales", "Bienestar diario"],
     banner: [
       {
@@ -176,6 +189,7 @@ export const categories: CategoryDefinition[] = [
     name: "Proteína",
     shortDescription: "Para después del entreno, y del resto del día.",
     accentIcon: "Dumbbell",
+    images: ["/images/categories/proteina-1.jpg"],
     subcategories: ["Whey", "Vegana", "Rendimiento"],
     banner: [
       {
@@ -193,6 +207,7 @@ export const categories: CategoryDefinition[] = [
     name: "Congelados y meal prep",
     shortDescription: "Comida real, lista cuando la necesitas.",
     accentIcon: "Soup",
+    images: ["/images/categories/congelados-y-meal-prep-1.jpg"],
     subcategories: ["Bowls", "Congelados", "Desayunos"],
     banner: [
       {
@@ -210,6 +225,7 @@ export const categories: CategoryDefinition[] = [
     name: "Marca QuickBite",
     shortDescription: "Nuestra propia curaduría, de punta a punta.",
     accentIcon: "BadgeCheck",
+    images: ["/images/categories/marca-quickbite-1.jpg"],
     subcategories: ["Snacks", "Bebidas", "Despensa"],
     banner: [
       {
