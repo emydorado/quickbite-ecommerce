@@ -7,6 +7,11 @@ export interface CategoryDefinition {
   name: string;
   shortDescription: string;
   accentIcon: string;
+  subcategories: string[];
+  banner: {
+    headline: string;
+    subtext: string;
+  }[];
 }
 
 export interface ProductVariant {
@@ -37,6 +42,7 @@ export interface Product {
   description: string;
   dietaryAttributes: DietaryAttribute[];
   tags: ProductTag[];
+  subcategory: string;
   variants: ProductVariant[];
   rating: number;
   reviewCount: number;

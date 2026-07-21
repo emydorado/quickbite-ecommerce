@@ -38,13 +38,13 @@ function Footer() {
     <footer className="border-t border-border bg-primary text-secondary">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-10 lg:grid-cols-6">
-          <div className="col-span-2 flex flex-col gap-4 lg:col-span-2">
+          <div className="col-span-2 flex flex-col items-start gap-4 lg:col-span-2">
             <Image
               src="/logo/quickbite-wordmark-light-green.svg"
               alt="QuickBite"
               width={112}
               height={64}
-              className="h-10 w-auto"
+              className="h-10 w-auto self-start"
             />
             <p className="max-w-xs text-sm leading-relaxed text-secondary/70">
               Tu despensa saludable, curada y lista, en minutos.

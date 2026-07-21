@@ -1,5 +1,6 @@
 import type { DietaryAttribute, Product, ProductTag } from "./types";
 import { makeReviews, averageRating } from "./review-pool";
+import { categories } from "./categories";
 
 interface RawProduct {
   title: string;
@@ -37,6 +38,10 @@ function defineProduct(raw: RawProduct, seed: number): Product {
     inventory: raw.status === "out-of-stock" ? 0 : 24 + (seed % 40),
   }));
   const reviews = makeReviews(raw.title, seed);
+  const categoryDef = categories.find((c) => c.slug === raw.categorySlug);
+  const subcategory =
+    categoryDef?.subcategories[seed % categoryDef.subcategories.length] ??
+    "General";
 
   return {
     id: handle,
@@ -48,6 +53,7 @@ function defineProduct(raw: RawProduct, seed: number): Product {
     description: raw.description,
     dietaryAttributes: raw.dietaryAttributes ?? [],
     tags: raw.tags ?? [],
+    subcategory,
     variants,
     rating: averageRating(reviews),
     reviewCount: reviews.length,

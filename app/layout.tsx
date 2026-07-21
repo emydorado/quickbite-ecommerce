@@ -16,7 +16,7 @@ const radioCanada = Radio_Canada({
 
 export const metadata: Metadata = {
   title: {
-    default: "QuickBite — Tu despensa saludable, lista en minutos",
+    default: "QuickBite · Tu despensa saludable, lista en minutos",
     template: "%s · QuickBite",
   },
   description:

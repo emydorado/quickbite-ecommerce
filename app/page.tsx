@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/hero";
-import { CategoryGrid } from "@/components/home/category-grid";
+import { CategoryTicker } from "@/components/home/category-ticker";
 import { BestsellerGrid } from "@/components/home/bestseller-grid";
 import { ValueProps } from "@/components/home/value-props";
 import { EditorialSection } from "@/components/home/editorial-section";
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <CategoryGrid />
+      <CategoryTicker />
       <BestsellerGrid />
       <ValueProps />
       <EditorialSection />

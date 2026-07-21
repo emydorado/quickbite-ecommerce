@@ -14,7 +14,7 @@ function EditorialSection() {
             Nuestra historia
           </span>
           <h2 className="font-editorial text-3xl leading-tight sm:text-4xl">
-            No vendemos más productos saludables. Vendemos menos fricción.
+            Come saludable a tan solo unos cuantos clics.
           </h2>
           <p className="max-w-md leading-relaxed text-secondary/75">
             QuickBite nació para resolver la fragmentación de la compra

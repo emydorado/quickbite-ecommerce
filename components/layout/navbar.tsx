@@ -2,11 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Search, Heart, ShoppingBag, Menu, X } from "lucide-react";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { Search, Heart, ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { useCartStore } from "@/lib/store/cart-store";
+import { useAuthStore } from "@/lib/store/auth-store";
 import { categories } from "@/lib/data/categories";
+import { QIcon } from "@/components/shared/q-icon";
+import { Button } from "@/components/ui/button";
+import { AuthModal } from "@/components/shared/auth-modal";
 
 const primaryLinks = [
   { href: "/categoria/snacks-saludables", label: "Snacks" },
@@ -19,7 +23,10 @@ const primaryLinks = [
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
   const totalItems = useCartStore((s) => s.totalItems());
+  const user = useAuthStore((s) => s.user);
+  const logOut = useAuthStore((s) => s.logOut);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -48,15 +55,8 @@ function Navbar() {
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-          <Link href="/" className="flex items-center" aria-label="QuickBite — inicio">
-            <Image
-              src="/logo/quickbite-wordmark-dark-green.svg"
-              alt="QuickBite"
-              width={112}
-              height={64}
-              priority
-              className="h-9 w-auto"
-            />
+          <Link href="/" className="flex items-center" aria-label="Inicio de QuickBite">
+            <QIcon size={40} />
           </Link>
         </div>
 
@@ -99,6 +99,53 @@ function Navbar() {
               </span>
             )}
           </Link>
+
+          <div className="ml-1 hidden sm:block">
+            {user ? (
+              <DropdownMenu.Root>
+                <DropdownMenu.Trigger asChild>
+                  <button
+                    type="button"
+                    className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-primary hover:bg-primary-subtle"
+                  >
+                    Hola, {user.name.split(" ")[0]}
+                    <ChevronDown size={14} />
+                  </button>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Portal>
+                  <DropdownMenu.Content
+                    align="end"
+                    sideOffset={10}
+                    className="z-50 w-64 rounded-xl border border-border bg-secondary p-2 shadow-lg"
+                  >
+                    <div className="px-3 py-2">
+                      <p className="text-sm font-medium text-neutral">{user.name}</p>
+                      <p className="text-xs text-neutral/55">{user.email}</p>
+                    </div>
+                    <DropdownMenu.Separator className="my-1 h-px bg-border" />
+                    <DropdownMenu.Item asChild>
+                      <Link
+                        href="/cuenta"
+                        className="block cursor-pointer rounded-lg px-3 py-2 text-sm text-neutral outline-none hover:bg-primary-subtle"
+                      >
+                        Editar perfil
+                      </Link>
+                    </DropdownMenu.Item>
+                    <DropdownMenu.Item
+                      onSelect={() => logOut()}
+                      className="cursor-pointer rounded-lg px-3 py-2 text-sm text-neutral outline-none hover:bg-primary-subtle"
+                    >
+                      Cerrar sesión
+                    </DropdownMenu.Item>
+                  </DropdownMenu.Content>
+                </DropdownMenu.Portal>
+              </DropdownMenu.Root>
+            ) : (
+              <Button size="sm" onClick={() => setAuthOpen(true)}>
+                Registrarse
+              </Button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -126,8 +173,47 @@ function Navbar() {
               </Link>
             ))}
           </div>
+          <div className="mt-2 border-t border-border pt-3">
+            {user ? (
+              <div className="flex flex-col gap-1">
+                <p className="px-3 text-sm font-medium text-neutral">
+                  Hola, {user.name.split(" ")[0]}
+                </p>
+                <Link
+                  href="/cuenta"
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm text-neutral/70 hover:bg-primary-subtle"
+                >
+                  Editar perfil
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    logOut();
+                    setMobileOpen(false);
+                  }}
+                  className="rounded-lg px-3 py-2.5 text-left text-sm text-neutral/70 hover:bg-primary-subtle"
+                >
+                  Cerrar sesión
+                </button>
+              </div>
+            ) : (
+              <Button
+                size="sm"
+                className="ml-3"
+                onClick={() => {
+                  setAuthOpen(true);
+                  setMobileOpen(false);
+                }}
+              >
+                Registrarse
+              </Button>
+            )}
+          </div>
         </nav>
       )}
+
+      <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
     </header>
   );
 }

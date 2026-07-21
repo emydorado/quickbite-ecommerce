@@ -15,7 +15,7 @@ function BestsellerGrid() {
               Los que más se repiten
             </h2>
             <p className="max-w-lg text-neutral/60">
-              No es un catálogo infinito — es lo que la gente vuelve a pedir.
+              Lo que más nos piden, dales una oportunidad!
             </p>
           </div>
           <Link
@@ -27,7 +27,9 @@ function BestsellerGrid() {
         </div>
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
           {bestsellers.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <div key={product.id} className="mx-auto w-[70%] min-w-[9.5rem]">
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
       </div>
