@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand color system — do not modify without updating the brand sheet */
+  --color-primary: #003324;
+  --color-secondary: #fffaf5;
+  --color-neutral: #00150f;
+  --color-lime: #8bc652;
+  --color-orange: #f76711;
+
+  /* Tints/shades derived from primary, used for hover/border/subtle states */
+  --color-primary-hover: #012a1d;
+  --color-primary-subtle: #e7ede9;
+  --color-border: #e4ded4;
+  --color-lime-subtle: #eef6e4;
+  --color-orange-subtle: #fdece1;
+
+  --background: var(--color-secondary);
+  --foreground: var(--color-neutral);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-subtle: var(--color-primary-subtle);
+  --color-secondary: var(--color-secondary);
+  --color-neutral: var(--color-neutral);
+  --color-lime: var(--color-lime);
+  --color-lime-subtle: var(--color-lime-subtle);
+  --color-orange: var(--color-orange);
+  --color-orange-subtle: var(--color-orange-subtle);
+  --color-border: var(--color-border);
+
+  --font-sans: var(--font-dm-sans);
+  --font-editorial: var(--font-radio-canada);
+
+  /* Modular type scale — base 16px, ratio ~1.25 */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.5625rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.953rem;
+  --text-2xl--line-height: 2.25rem;
+  --text-3xl: 2.441rem;
+  --text-3xl--line-height: 2.75rem;
+  --text-4xl: 3.052rem;
+  --text-4xl--line-height: 3.25rem;
+  --text-5xl: 3.815rem;
+  --text-5xl--line-height: 4rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-full: 999px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Visible, on-brand focus state — replaces the default browser outline everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
